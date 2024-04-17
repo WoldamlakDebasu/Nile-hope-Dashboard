@@ -12,12 +12,12 @@ function App() {
   useEffect(() => {
     const routes = getRoutes()
     setAllRoutes([...allRoutes, routes])
-  }, [])
+  }, [allRoutes])
   useEffect(() => {
     if (token) {
       dispatch(get_user_info())
     }
-  }, [token])
+  }, [dispatch, token])
   return <Router allRoutes={allRoutes} />
 }
 

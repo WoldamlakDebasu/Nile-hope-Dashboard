@@ -11,7 +11,6 @@ const DeactiveSellers = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [searchValue, setSearchValue] = useState('')
     const [parPage, setParPage] = useState(5)
-    const [show, setShow] = useState(false)
 
     const { sellers, totalSellers } = useSelector(state => state.seller)
     const dispatch = useDispatch()
@@ -23,7 +22,7 @@ const DeactiveSellers = () => {
             searchValue
         }
         dispatch(get_deactive_sellers(obj))
-    }, [searchValue, currentPage, parPage])
+    }, [searchValue, currentPage, parPage, dispatch])
 
     return (
         <div className='px-2 lg:px-7 pt-5'>
@@ -76,7 +75,7 @@ const DeactiveSellers = () => {
                                     <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.shopInfo?.district}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <div className='flex justify-start items-center gap-4'>
                                             <Link to={`/admin/dashboard/seller/details/${d._id}`} className='p-[6px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50'><FaEye /></Link>
                                         </div>

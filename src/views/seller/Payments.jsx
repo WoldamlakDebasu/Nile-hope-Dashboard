@@ -56,7 +56,7 @@ const Payments = () => {
 
     useEffect(() => {
         dispatch(get_seller_payemt_details(userInfo._id))
-    }, [])
+    }, [dispatch, userInfo._id])
 
     useEffect(() => {
         if (successMessage) {
@@ -67,7 +67,7 @@ const Payments = () => {
             toast.error(errorMessage)
             dispatch(messageClear())
         }
-    }, [errorMessage, successMessage])
+    }, [dispatch, errorMessage, successMessage])
 
     const sendRequest = (e) => {
         e.preventDefault()

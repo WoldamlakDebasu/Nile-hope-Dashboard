@@ -2,7 +2,7 @@ import { AiFillDashboard, AiOutlineShoppingCart,AiOutlinePlus } from 'react-icon
 import { BiCategory, BiLoaderCircle } from 'react-icons/bi'
 import { FiUsers } from 'react-icons/fi'
 import { CiChat1 } from 'react-icons/ci'
-import { BsCurrencyDollar,BsChat } from 'react-icons/bs'
+import { BsCurrencyDollar } from 'react-icons/bs'
 import { RiProductHuntLine } from 'react-icons/ri'
 export const allNav = [
     {

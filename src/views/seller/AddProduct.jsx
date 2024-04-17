@@ -9,6 +9,7 @@ import { PropagateLoader } from 'react-spinners'
 import { overrideStyle } from '../../utils/utils'
 import { get_category } from '../../store/Reducers/categoryReducer'
 import { add_product, messageClear } from '../../store/Reducers/productReducer'
+import { useRef } from 'react'
 const AddProduct = () => {
     const dispatch = useDispatch()
     const { categorys } = useSelector(state => state.category)
@@ -19,7 +20,7 @@ const AddProduct = () => {
             parPage: '',
             page: ""
         }))
-    }, [])
+    }, [dispatch])
     const [state, setState] = useState({
         name: "",
         description: '',
@@ -123,11 +124,14 @@ const AddProduct = () => {
         }
     }
 
-    let isClothesCategory = category? category.toLowerCase().includes('cloth') : false;
-    useEffect(()=>{
-        console.log(state.category,'category');
-        isClothesCategory = category ? category.toLowerCase().includes('cloth') : false;
-    },[category])
+    const isClothesCategoryRef = useRef(false);
+
+useEffect(() => {
+    isClothesCategoryRef.current = category ? category.toLowerCase().includes('cloth') : false;
+    console.log(state.category, 'category');
+}, [category, state.category]);
+
+const isClothesCategory = isClothesCategoryRef.current;
 
 
     const removeImage = (i) => {
@@ -193,7 +197,7 @@ const AddProduct = () => {
             setCategory('')
 
         }
-    }, [successMessage, errorMessage])
+    }, [successMessage, errorMessage, dispatch])
 
     return (
         <div className='px-2 lg:px-7 pt-5 '>

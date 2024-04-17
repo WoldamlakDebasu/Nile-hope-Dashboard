@@ -32,7 +32,7 @@ const Products = () => {
             searchValue
         }
         dispatch(get_products(obj))
-    }, [searchValue, currentPage, parPage])
+    }, [searchValue, currentPage, parPage, dispatch])
 
     return (
         <div className='px-2 lg:px-7 pt-5 '>
@@ -56,31 +56,31 @@ const Products = () => {
                         <tbody>
                             {
                                 products.map((d, i) => <tr key={i}>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>{i + 1}</td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>{i + 1}</td>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <img className='w-[45px] h-[45px]' src={d.images[0]} alt="" />
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d?.name?.slice(0, 16)}...</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.category}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.brand}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>${d.price}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         {
                                             d.discount === 0 ? <span>no discount</span> : <span>${d.discount}%</span>
                                         }
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.stock}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <div className='flex justify-start items-center gap-4'>
                                             <Link to={`/seller/dashboard/edit-product/${d._id}`} className='p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50'><FaEdit /></Link>
                                             <Link className='p-[6px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50'><FaEye /></Link>

@@ -9,7 +9,7 @@ const SellerDetails = () => {
     const { sellerId } = useParams()
     useEffect(() => {
         dispatch(get_seller(sellerId))
-    }, [sellerId])
+    }, [dispatch, sellerId])
     const [status, setStatus] = useState('')
     const [email, setEmail] = useState('')
     const submit = (e) => {
@@ -25,7 +25,7 @@ const SellerDetails = () => {
             toast.success(successMessage)
             dispatch(messageClear())
         }
-    }, [successMessage])
+    }, [dispatch, successMessage])
     useEffect(() => {
         if (seller) {
             setStatus(seller.status)

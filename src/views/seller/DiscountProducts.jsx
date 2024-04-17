@@ -30,29 +30,29 @@ const DiscountProducts = () => {
                         <tbody>
                             {
                                 [1, 2, 3, 4, 5].map((d, i) => <tr key={i}>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>{d}</td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>{d}</td>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <img className='w-[45px] h-[45px]' src={` https://nile-hope-client.vercel.app/images/category/${d}.jpg`} alt="" />
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>Men's Premium soft..</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>Sports</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>Easy</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>$565</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>5%</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>10</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <div className='flex justify-start items-center gap-4'>
                                             <Link className='p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50'><FaEdit /></Link>
                                             <Link className='p-[6px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50'><FaEye /></Link>

@@ -54,26 +54,26 @@ const DeactiveSellers = () => {
                         <tbody className='text-sm font-normal'>
                             {
                                 sellers.map((d, i) => <tr key={i}>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>{i + 1}</td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>{i + 1}</td>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <img className='w-[45px] h-[45px]' src={` https://nile-hope-client.vercel.app/images/category/${d.image}.jpg`} alt="" />
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.name}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.shopInfo?.shopName}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.status}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.email}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.shopInfo?.division}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.shopInfo?.district}</span>
                                     </td>
                                     <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>

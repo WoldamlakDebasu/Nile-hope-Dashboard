@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FaEdit, FaEye, FaTrash } from 'react-icons/fa'
+import {  FaEye } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Pagination from '../Pagination'
 import Search from '../components/Search'
@@ -21,7 +21,7 @@ const Orders = () => {
             searchValue,
             sellerId: userInfo._id
         }))
-    }, [parPage, currentPage, searchValue])
+    }, [parPage, currentPage, searchValue, dispatch, userInfo._id])
 
     return (
         <div className='px-2 lg:px-7 pt-5 '>
@@ -42,16 +42,16 @@ const Orders = () => {
                         <tbody>
                             {
                                 myOrders.map((d, i) => <tr key={i}>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>#{d._id}</td>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>${d.price}</td>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>#{d._id}</td>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>${d.price}</td>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.payment_status}</span>
                                     </td>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.delivery_status}</span>
                                     </td>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>${d.date}</td>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>${d.date}</td>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>
                                         <Link to={`/seller/dashboard/order/details/${d._id}`} className='p-[6px] w-[30px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50 flex justify-center items-center'><FaEye /></Link>
                                     </td>
                                 </tr>)

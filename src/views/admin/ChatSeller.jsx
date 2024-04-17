@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { get_sellers } from '../../store/Reducers/chatReducer'
 import { BsEmojiSmile } from 'react-icons/bs'
 import toast from 'react-hot-toast'
-import { send_message_seller_admin, messageClear, get_admin_message ,updateSellerMessage} from '../../store/Reducers/chatReducer'
+import { send_message_seller_admin, get_admin_message ,updateSellerMessage} from '../../store/Reducers/chatReducer'
 // import { socket } from '../../utils/utils'
 
 const ChatSeller = () => {
@@ -15,15 +15,15 @@ const ChatSeller = () => {
 
     const { sellerId } = useParams()
     const dispatch = useDispatch()
-    const { sellers, activeSellers, seller_admin_message, currentSeller, successMessage } = useSelector(state => state.chat)
-    const { userInfo } = useSelector(state => state.auth)
+    const { sellers, activeSellers, seller_admin_message, currentSeller } = useSelector(state => state.chat)
+    // const { userInfo } = useSelector(state => state.auth)
     const [show, setShow] = useState(false)
-    const [recevedMessage, setRecevedMessage] = useState('')
+    const [recevedMessage] = useState('')
 
     const [text, setText] = useState('')
     useEffect(() => {
         dispatch(get_sellers())
-    }, [])
+    }, [dispatch])
 
     const send = (e) => {
         e.preventDefault()
@@ -40,7 +40,7 @@ const ChatSeller = () => {
         if (sellerId) {
             dispatch(get_admin_message(sellerId))
         }
-    }, [sellerId])
+    }, [dispatch, sellerId])
 
     // useEffect(() => {
     //     if (successMessage) {
@@ -64,7 +64,7 @@ const ChatSeller = () => {
                 toast.success(recevedMessage.senderName + ' send a message')
             }
         }
-    }, [recevedMessage])
+    }, [dispatch, recevedMessage, sellerId])
 
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -82,7 +82,7 @@ const ChatSeller = () => {
                                 <span onClick={() => setShow(!show)} className='block cursor-pointer md:hidden'><IoMdClose /></span>
                             </div>
                             {
-                                sellers.map((s, i) => <Link key={i} to={`/admin/dashboard/chat-sellers/${s._id}`} className={`h-[60px] flex justify-start gap-2 items-center text-white px-2 rounded-sm py-2 rounded-sm cursor-pointer ${sellerId === s._id ? 'bg-slate-700' : ''}`}>
+                                sellers.map((s, i) => <Link key={i} to={`/admin/dashboard/chat-sellers/${s._id}`} className={`h-[60px] flex justify-start gap-2 items-center text-white px-2  py-2 rounded-sm cursor-pointer ${sellerId === s._id ? 'bg-slate-700' : ''}`}>
                                     <div className='relative'>
                                         <img className='w-[38px] h-[38px] border-white border-2 max-w-[38px] p-[2px] rounded-full' src={s.image} alt="" />
                                         {

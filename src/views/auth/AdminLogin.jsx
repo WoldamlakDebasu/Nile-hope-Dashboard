@@ -39,14 +39,14 @@ const AdminLogin = () => {
             dispatch(messageClear())
             navigate('/')
         }
-    }, [errorMessage, successMessage])
+    }, [dispatch, errorMessage, navigate, successMessage])
     return (
         <div className='min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center'>
             <div className='w-[350px] text-[#d0d2d6] p-2'>
                 <div className='bg-[#283046] p-4 rounded-md'>
                     <div className='h-[70px] flex justify-center items-center'>
                         <div className='w-[180px] h-[50px]'>
-                            <img className='w-full h-full' src=" https://nile-hope-client.vercel.app/images/logo.png" alt="image" />
+                            <img className='w-full h-full' alt='alt' src=" https://nile-hope-client.vercel.app/images/logo.png" />
                         </div>
                     </div>
                     <form onSubmit={submit}>

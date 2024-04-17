@@ -15,7 +15,7 @@ const Success = () => {
 
     useEffect(() => {
         dispatch(active_stripe_connect_account(activeCode))
-    }, [activeCode])
+    }, [activeCode, dispatch])
 
     const redirect = () => {
         dispatch(messageClear())

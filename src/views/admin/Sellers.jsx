@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaEdit, FaEye, FaTrash } from 'react-icons/fa'
+import {  FaEye } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Pagination from '../Pagination'
 import { useDispatch, useSelector } from 'react-redux'
@@ -22,7 +22,7 @@ const Sellers = () => {
             searchValue
         }
         dispatch(get_active_sellers(obj))
-    }, [searchValue, currentPage, parPage])
+    }, [searchValue, currentPage, parPage, dispatch])
     return (
         <div className='px-2 lg:px-7 pt-5'>
             <div className='w-full p-4  bg-[#283046] rounded-md'>
@@ -52,29 +52,29 @@ const Sellers = () => {
                         <tbody className='text-sm font-normal'>
                             {
                                 sellers.map((d, i) => <tr key={i}>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>{i + 1}</td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>{i + 1}</td>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <img className='w-[45px] h-[45px]' src={` https://nile-hope-client.vercel.app/images/category/${d.image}.jpg`} alt="" />
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.name}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.shopInfo?.shopName}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.status}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.email}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.shopInfo?.division}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.shopInfo?.district}</span>
                                     </td>
-                                    <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                    <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                         <div className='flex justify-start items-center gap-4'>
                                             <Link to={`/admin/dashboard/seller/details/${d._id}`} className='p-[6px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50'><FaEye /></Link>
                                         </div>

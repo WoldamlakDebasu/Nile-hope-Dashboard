@@ -13,7 +13,7 @@ const OrderDetails = () => {
 
     useEffect(() => {
         dispatch(get_seller_order(orderId))
-    }, [orderId])
+    }, [dispatch, orderId])
 
     const [status, setStatus] = useState('')
     useEffect(() => {
@@ -33,7 +33,7 @@ const OrderDetails = () => {
             toast.error(errorMessage)
             dispatch(messageClear())
         }
-    }, [successMessage, errorMessage])
+    }, [successMessage, errorMessage, dispatch])
 
 
     return (

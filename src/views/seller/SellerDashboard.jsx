@@ -184,15 +184,15 @@ const SellerDashboard = () => {
                         <tbody>
                             {
                                 recentOrders.map((d, i) => <tr key={i}>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>#{d._id}</td>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>${d.price}</td>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>#{d._id}</td>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>${d.price}</td>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.delivery_status}</span>
                                     </td>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>
                                         <span>{d.payment_status}</span>
                                     </td>
-                                    <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>
+                                    <td className='py-3 px-4 font-medium whitespace-nowrap'>
                                         <Link to={`/seller/dashboard/order/details/${d._id}`}>view</Link>
                                     </td>
                                 </tr>)

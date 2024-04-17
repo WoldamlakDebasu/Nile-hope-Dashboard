@@ -96,7 +96,7 @@ const submit = (e) => {
             toast.error(errorMessage);
             dispatch(messageClear());
         }
-    }, [successMessage, errorMessage]);
+    }, [successMessage, errorMessage, dispatch, navigate]);
 
     return (
         <div className='min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center'>

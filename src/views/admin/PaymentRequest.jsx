@@ -23,7 +23,7 @@ const PaymentRequest = () => {
 
   useEffect(() => {
     dispatch(get_payment_request())
-  }, [])
+  }, [dispatch])
   const [paymentId, setPaymentId] = useState('')
   const confirm_request = (id) => {
     setPaymentId(id)
@@ -39,7 +39,7 @@ const PaymentRequest = () => {
       toast.error(errorMessage)
       dispatch(messageClear())
     }
-  }, [errorMessage, successMessage])
+  }, [dispatch, errorMessage, successMessage])
 
   const Row = ({ index, style }) => {
     return (

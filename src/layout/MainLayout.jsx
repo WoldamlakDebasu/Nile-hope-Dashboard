@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from './Header'
 import Sidebar from './Sidebar'
 // import { socket } from '../utils/utils'
-import { useSelector,useDispatch } from 'react-redux'
-import {updateCustomer,updateSellers,activeStatus_update} from '../store/Reducers/chatReducer'
+// import { useSelector,useDispatch } from 'react-redux'
+// import {updateCustomer,updateSellers,activeStatus_update} from '../store/Reducers/chatReducer'
 
 const MainLayout = () => {
 
-  const dispatch = useDispatch()
-  const { userInfo } = useSelector(state => state.auth)
+  // const dispatch = useDispatch()
+  // const { userInfo } = useSelector(state => state.auth)
   const [showSidebar, setShowSidebar] = useState(false)
 
   // useEffect(() => {

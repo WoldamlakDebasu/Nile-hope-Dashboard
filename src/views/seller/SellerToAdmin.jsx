@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { send_message_seller_admin, messageClear, get_seller_message, updateAdminMessage } from '../../store/Reducers/chatReducer'
+import { send_message_seller_admin, get_seller_message } from '../../store/Reducers/chatReducer'
 import { useDispatch, useSelector } from 'react-redux'
 // import { socket } from '../../utils/utils'
 
@@ -9,11 +9,11 @@ const SellerToAdmin = () => {
 
     const [text, setText] = useState('')
     const dispatch = useDispatch()
-    const { seller_admin_message, successMessage, activeAdmin } = useSelector(state => state.chat)
+    const { seller_admin_message, activeAdmin } = useSelector(state => state.chat)
     const { userInfo } = useSelector(state => state.auth)
     useEffect(() => {
         dispatch(get_seller_message())
-    }, [])
+    }, [dispatch])
     const send = (e) => {
         e.preventDefault()
         dispatch(send_message_seller_admin({

@@ -12,8 +12,8 @@ const SellerToCustomer = () => {
 
     const scrollRef = useRef()
     const { userInfo } = useSelector(state => state.auth)
-    const { customers, currentCustomer, messages, successMessage, activeCustomer } = useSelector(state => state.chat)
-    const [receverMessage, setReceverMessage] = useState('')
+    const { customers, currentCustomer, messages, activeCustomer } = useSelector(state => state.chat)
+    const [receverMessage] = useState('')
     const dispatch = useDispatch()
     const [text, setText] = useState('')
     const { customerId } = useParams()
@@ -22,12 +22,12 @@ const SellerToCustomer = () => {
 
     useEffect(() => {
         dispatch(get_customers(userInfo._id))
-    }, [])
+    }, [dispatch, userInfo._id])
     useEffect(() => {
         if (customerId) {
             dispatch(get_customer_message(customerId))
         }
-    }, [customerId])
+    }, [customerId, dispatch])
 
     const send = (e) => {
         e.preventDefault()
@@ -64,11 +64,11 @@ const SellerToCustomer = () => {
                 dispatch(updateMessage(receverMessage))
             }
             else {
-                toast.success(receverMessage.senderName + " " + "send a message")
+                toast.success(receverMessage.senderName + "send a message")
                 dispatch(messageClear())
             }
         }
-    }, [receverMessage])
+    }, [customerId, dispatch, receverMessage, userInfo._id])
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
     }, [messages])

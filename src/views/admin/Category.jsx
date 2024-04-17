@@ -3,7 +3,6 @@ import { FaEdit, FaTrash } from 'react-icons/fa'
 import { PropagateLoader } from 'react-spinners'
 import { overrideStyle } from '../../utils/utils'
 import { GrClose } from 'react-icons/gr'
-import { Link } from 'react-router-dom'
 import Pagination from '../Pagination'
 import { BsImage } from 'react-icons/bs'
 import toast from 'react-hot-toast'
@@ -73,7 +72,7 @@ console.log(imageShow, 'hhhhhwww');
             })
             setImage('')
         }
-    }, [successMessage, errorMessage])
+    }, [successMessage, errorMessage, dispatch])
 
     useEffect(() => {
         const obj = {
@@ -82,7 +81,7 @@ console.log(imageShow, 'hhhhhwww');
             searchValue
         }
         dispatch(get_category(obj))
-    }, [searchValue, currentPage, parPage])
+    }, [searchValue, currentPage, parPage, dispatch])
 
     useEffect(() => {
         setState({
@@ -114,14 +113,14 @@ console.log(imageShow, 'hhhhhwww');
                                 <tbody>
                                     {
                                         categorys.map((d, i) => <tr key={i}>
-                                            <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>{i + 1}</td>
-                                            <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                            <td  className='py-1 px-4 font-medium whitespace-nowrap'>{i + 1}</td>
+                                            <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                                 <img className='w-[45px] h-[45px]' src={d.image} alt="" />
                                             </td>
-                                            <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                            <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                                 <span>{d.name}</span>
                                             </td>
-                                            <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
+                                            <td  className='py-1 px-4 font-medium whitespace-nowrap'>
                                                 <div className='flex justify-start items-center gap-4'>
                                                 <button className='p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50' onClick={() => {
                                                     setEditMode(true);
@@ -174,7 +173,7 @@ console.log(imageShow, 'hhhhhwww');
 
                                     <label className='flex justify-center items-center flex-col h-[238px] cursor-pointer border border-dashed hover:border-indigo-500 w-full border-[#d0d2d6]' htmlFor="image">
                                         {
-                                            imageShow ? <img className='w-full h-full' src={imageShow} /> : <>
+                                            imageShow ? <img className='w-full h-full'  src={imageShow} alt='imagee'/> : <>
                                                 <span><BsImage /></span>
                                                 <span>select Image</span>
                                             </>

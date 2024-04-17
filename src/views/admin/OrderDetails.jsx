@@ -12,7 +12,7 @@ const OrderDetails = () => {
 
     useEffect(() => {
         dispatch(get_admin_order(orderId))
-    }, [orderId])
+    }, [dispatch, orderId])
 
     const [status, setStatus] = useState('')
     useEffect(() => {
@@ -32,7 +32,7 @@ const OrderDetails = () => {
             toast.error(errorMessage)
             dispatch(messageClear())
         }
-    }, [successMessage, errorMessage])
+    }, [successMessage, errorMessage, dispatch])
 
     return (
         <div className='px-2 lg:px-7 pt-5'>

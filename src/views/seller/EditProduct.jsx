@@ -5,8 +5,7 @@ import { PropagateLoader } from 'react-spinners'
 import toast from 'react-hot-toast'
 import { get_category } from '../../store/Reducers/categoryReducer'
 import { get_product, messageClear, update_product,product_image_update } from '../../store/Reducers/productReducer'
-import { BsImages } from 'react-icons/bs'
-import { IoCloseSharp } from 'react-icons/io5'
+
 import { overrideStyle } from '../../utils/utils'
 const EditProduct = () => {
     const { productId } = useParams()
@@ -20,7 +19,7 @@ const EditProduct = () => {
             parPage: '',
             page: ""
         }))
-    }, [])
+    }, [dispatch])
     const [state, setState] = useState({
         name: "",
         description: '',
@@ -38,7 +37,7 @@ const EditProduct = () => {
 
     useEffect(() => {
         dispatch(get_product(productId))
-    }, [productId])
+    }, [dispatch, productId])
 
     const [cateShow, setCateShow] = useState(false)
     const [category, setCategory] = useState('')
@@ -93,7 +92,7 @@ const EditProduct = () => {
             toast.success(successMessage)
             dispatch(messageClear())
         }
-    }, [successMessage, errorMessage])
+    }, [successMessage, errorMessage, dispatch])
 
     const update = (e) => {
         e.preventDefault()

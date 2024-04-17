@@ -9,7 +9,7 @@ const Orders = () => {
     const dispatch = useDispatch()
     const { totalOrder, myOrders } = useSelector(state => state.order)
     const [currentPage, setCurrentPage] = useState(1)
-    const [searchValue, setSearchValue] = useState('')
+    const [searchValue] = useState('')
     const [parPage, setParPage] = useState(5)
     const [show, setShow] = useState('')
 
@@ -20,7 +20,7 @@ const Orders = () => {
             page: parseInt(currentPage),
             searchValue
         }))
-    }, [parPage,currentPage,searchValue])
+    }, [parPage, currentPage, searchValue, dispatch])
     console.log(get_admin_orders,'get_admin_orders',myOrders,'myOrders');
 
     return (
